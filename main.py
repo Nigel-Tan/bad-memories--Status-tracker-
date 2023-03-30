@@ -6,7 +6,7 @@ import pytz
 from datetime import datetime
 
 
-channelid = 1050365729070911528 #change channelid based on the channel you want the bot to post to
+channelid = 12345678 #change channelid based on the channel you want the bot to post to
 
 def getTime(): #gets the time, note this is in singapore
   utc_now = datetime.utcnow()
