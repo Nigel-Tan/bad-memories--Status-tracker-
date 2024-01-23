@@ -71,12 +71,12 @@ x = [] #this list is here because I had issues with messasges being sent twice w
 async def on_presence_update(before, after):
     channel = client.get_channel(channelid) #find channel to send messasge to.
     activ = after.status
-    if ((after.status != before.status)and(str(before.status) == 'offline') and (before not in x) and (str(after.status=='online'))): #if user came online
+    if ((after.status != before.status)and(str(before.status) == 'offline') and (before not in x) and (str(after.status=='online'))and (not after.bot)): #if user came online
       time_str = getTime()    
       msg = '{0} is now online. The time is {1}'.format(str(before),time_str)
       x.append(before)
       await channel.send(msg)
-    elif ((str(after.status) == 'offline') and (before.status != activ) and (before in x) and (str(before.status=='online'))): #if user goes offline
+    elif ((str(after.status) == 'offline') and (before.status != activ) and (before in x) and (str(before.status=='online'))and (not after.bot)): #if user goes offline
       x.remove(before)
       time_str = getTime()
       msg = '{0} is now offline. The time is {1}'.format(str(before),time_str)
